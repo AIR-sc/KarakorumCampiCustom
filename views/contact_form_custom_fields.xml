@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_contact_form_custom_fields" model="ir.ui.view">
+            <field name="name">contact_form_custom_fields</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+             <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Social network">
+                        <group string="Profili"  name="Profili">
+                            <field name="facebook" widget="url"/>
+                            <field name="instagram" widget="url"/>
+                            <field name="twitter" widget="url"/>
+                            <field name="linkedin" widget="url"/>
+                        </group>
+                    </page>
+                </xpath>
+                 <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="agente" string="Agente"/>
+                </xpath>
+            </field>
+        </record>
+   </data>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_product_form_custom_fields" model="ir.ui.view">
+            <field name="name">product_form_custom_fields</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="after">
+                
+                    <field name="collezione" string="Collezione"/>
+                    <field name="stagione" string="Stagione"/>
+                    <field name="confezione_associata" string="Conf. associata"/>
+                
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_collezione_tree" model="ir.ui.view">
+            <field name="name">collezione_form</field>
+            <field name="model">karakorum.collezione</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_stagione_tree" model="ir.ui.view">
+            <field name="name">stagione_form</field>
+            <field name="model">karakorum.stagione</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

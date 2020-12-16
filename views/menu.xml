@@ -1,0 +1,32 @@
+
+<odoo>
+    <data>
+        <!-- ACTIONS CARATTERISTICHE -->
+
+        <record id="collezione_list_action" model="ir.actions.act_window">
+            <field name="name">Collezione</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">karakorum.collezione</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="stagione_list_action" model="ir.actions.act_window">
+            <field name="name">Stagione</field>   
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">karakorum.stagione</field>  
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- MENU CARATTERISTICHE -->
+        <menuitem name="Caratteristiche" id="caratteristica_list"
+              parent="stock.menu_stock_inventory_control"/>
+
+        <menuitem name="Collezione" id="collezione_list"
+              parent="caratteristica_list"  action="collezione_list_action"/>
+
+		<menuitem name="Stagione" id="stagione_list"
+              parent="caratteristica_list"  action="stagione_list_action"/>
+
+    </data>
+</odoo>

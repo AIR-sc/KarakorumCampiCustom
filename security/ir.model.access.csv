@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_template.collezione,karakorum.collezione,model_karakorum_collezione,,1,1,1,1
+access_template.stagione,karakorum.stagione,model_karakorum_stagione,,1,1,1,1
+access_template.agente,karakorum.agente,model_karakorum_agente,,1,1,1,1
