@@ -16,9 +16,9 @@
                         </group>
                     </page>
                 </xpath>
-                 <xpath expr="//field[@name='category_id']" position="after">
+                <!-- <xpath expr="//field[@name='category_id']" position="after">
                     <field name="agente" string="Agente"/>
-                </xpath>
+                </xpath> -->
             </field>
         </record>
    </data>
