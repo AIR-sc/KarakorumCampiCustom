@@ -13,6 +13,13 @@
                     <field name="confezione_associata" string="Conf. associata"/>
                 
                 </xpath>
+
+                 <xpath expr="//group[@name='group_standard_price']" position="after">
+                     <group string="Pubblicazione web"  name="pubblicazione_web">
+                        <field name="pubblica_web_rivenditori"/>
+                        <field name="pubblica_web_b2c"/>
+                    </group>
+                </xpath>
             </field>
         </record>
 
