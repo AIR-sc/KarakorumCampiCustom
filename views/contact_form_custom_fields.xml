@@ -16,8 +16,8 @@
                         </group>
                     </page>
                 </xpath>
-                <xpath expr="//field[@name='category_id']" position="after">
-                    <group string="Provvigioni agente"  name="Provvigioni">
+                <xpath expr="//field[@name='category_id']" position="after" >
+                    <group string="Provvigioni agente"  name="Provvigioni" attrs="{'invisible':[('user_ids', '=', [])]}">
                         <field name="provvigione_ita" string="Provvigione Italia"/>
                         <field name="provvigione_est" string="Provvigione estero"/>
                     </group>
