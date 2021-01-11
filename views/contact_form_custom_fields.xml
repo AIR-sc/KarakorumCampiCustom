@@ -16,9 +16,12 @@
                         </group>
                     </page>
                 </xpath>
-                <!-- <xpath expr="//field[@name='category_id']" position="after">
-                    <field name="agente" string="Agente"/>
-                </xpath> -->
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <group string="Provvigioni agente"  name="Provvigioni">
+                        <field name="provvigione_ita" string="Provvigione Italia"/>
+                        <field name="provvigione_est" string="Provvigione estero"/>
+                    </group>
+                </xpath>
             </field>
         </record>
    </data>

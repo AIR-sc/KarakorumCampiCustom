@@ -13,6 +13,9 @@ class contact_template(models.Model):
 	twitter =  fields.Char(string="Twitter")
 	linkedin =  fields.Char(string="LinkedIn")
 
+	provvigione_ita = fields.Float(string="Provvigione Italia")
+	provvigione_est = fields.Float(string="Provvigione estero")
+
 class agente(models.Model):
     _name = "karakorum.agente"
 
