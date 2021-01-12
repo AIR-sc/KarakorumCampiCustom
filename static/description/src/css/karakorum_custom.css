@@ -1,0 +1,6 @@
+
+/* Barcode - Colora di verde le righe degli articoli completati */
+.o_barcode_line.list-group-item.d-flex.flex-row.flex-nowrap.o_line_qty_completed.o_line_completed
+{
+  background-color: lightgreen;
+}

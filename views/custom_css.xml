@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <template id="assets_backend" name="KarakorumCampiCustom assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+               <link rel="stylesheet" href="/KarakorumCampiCustom/static/src/css/karakorum_custom.css"/>
+            </xpath>
+        </template>
+    </data>     
+</odoo>
