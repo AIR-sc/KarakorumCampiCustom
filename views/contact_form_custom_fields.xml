@@ -15,12 +15,12 @@
                             <field name="linkedin" widget="url"/>
                         </group>
                     </page>
-                </xpath>
-                <xpath expr="//field[@name='category_id']" position="after" >
-                    <group string="Provvigioni agente"  name="Provvigioni" attrs="{'invisible':[('user_ids', '=', [])]}">
-                        <field name="provvigione_ita" string="Provvigione Italia"/>
-                        <field name="provvigione_est" string="Provvigione estero"/>
-                    </group>
+                    <page string="Provvigioni" attrs="{'invisible':[('user_ids', '=', [])]}">
+                        <group string="Provvigioni agente"  name="Provvigioni">
+                            <field name="provvigione_ita" string="Provvigione Italia"/>
+                            <field name="provvigione_est" string="Provvigione estero"/>
+                        </group>
+                    </page>
                 </xpath>
             </field>
         </record>
