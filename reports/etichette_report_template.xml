@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- ****** ETICHETTA PICCOLA ****** -->
+        <template id="etichette_report_template">
+            <t t-call="web.html_container" >
+                <!-- CURRENCY E BASE URL PER IL PATH DEL BARCODE -->
+                <t t-set="baseUrl" t-value="request.httprequest.host_url"/>
+                <t t-set="currency_id" t-value="doc.group_id.sale_id.currency_id"/>
+
+                <t t-foreach="doc.move_line_ids" t-as="move">
+                    <!-- NUMERO DI ETICHETTE PER OGNI ARTICOLO -->
+                    <t t-set="labelsCount" t-value="int(move.product_uom_qty)"/>
+                    <t t-foreach="range(labelsCount)" t-as="l">
+                        <table class="table table-condensed" style="width: 100%; padding:0; margin:0;" >
+                            <tbody>
+                                <tr>
+                                    <td colspan="2" >
+                                        <small><span t-esc="move.product_id.display_name" /></small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: left; vertical-align: middle;" >
+                                        <!-- BARCODE -->
+                                        <img t-att-src="'%sreport/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' 
+                                                        % (baseUrl,'Code128', move.product_id.barcode, 250, 35)" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b><span t-esc="doc.origin" /></b>
+                                    </td>
+                                    <td style="text-align: right; vertical-align: bottom;" >
+                                        <b><span t-esc="move.product_id.standard_price"  t-options="{'widget': 'monetary', 'display_currency': currency_id}"/></b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                        <p style="page-break-after:always;"></p>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="KarakorumCampiCustom.etichette_report">
+            <t t-call="web.html_container" >
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="KarakorumCampiCustom.etichette_report_template" />
+                </t>
+            </t>
+        </template>
+
+
+
+
+
+    <!-- ****** ETICHETTA GRANDE ****** -->
+        <template id="etichette_report_ordine_template">
+            <t t-call="web.html_container" >
+                <!-- CURRENCY E BASE URL PER IL PATH DEL BARCODE -->
+                <t t-set="baseUrl" t-value="request.httprequest.host_url"/>
+                <t t-set="currency_id" t-value="doc.group_id.sale_id.currency_id"/>
+
+                <t t-set="o" t-value="doc.group_id.sale_id" />
+                <t t-set="c" t-value="o.partner_id" />
+
+                    <h1>
+                        <span t-field="o.name"/>
+                        <span t-field="o.name"/>
+                    </h1>
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td colspan="3">
+                                    <b><span t-field="c.name"/></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <span t-field="c.street"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    <span t-field="c.city"/>
+                                </td>
+                                <td >
+                                    <span t-field="c.state_id.name"/>
+                                </td>
+                                <td >
+                                    <span t-field="c.zip"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <span t-field="c.country_id.name"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+            </t>
+        </template>
+
+        <template id="KarakorumCampiCustom.etichette_report_ordine">
+            <t t-call="web.html_container" >
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="KarakorumCampiCustom.etichette_report_ordine_template" />
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

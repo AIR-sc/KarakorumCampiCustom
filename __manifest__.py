@@ -13,7 +13,10 @@
              'views/contact_form_custom_fields.xml',
              'views/custom_css.xml',
              'views/menu.xml',
+             'views/etichette_config_settings_view.xml',
              'security/ir.model.access.csv',
+             'reports/etichette_report.xml',
+             'reports/etichette_report_template.xml'
              ],
     'css': ['static/src/css/karakorum_custom.css'],
     'website': 'https://www.air-srl.com',
