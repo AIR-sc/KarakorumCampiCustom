@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data>
+        <record id="view_general_configuration" model="ir.ui.view">
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='multi_company']" position="after">
+                    <h2>Etichette small</h2>
+                    <div class="row mt16 o_settings_container" name="multi_company">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Page width" for="etichette_small_page_width"/><br/>
+                                <field name="etichette_small_page_width" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Page height" for="etichette_small_page_height"/><br/>
+                                <field name="etichette_small_page_height" />
+                            </div>
+                        </div>
 
-    <record id="view_general_configuration" model="ir.ui.view">
-        <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//div[@name='multi_company']" position="after">
-                <h2>Etichette small</h2>
-                <div class="row mt16 o_settings_container" name="multi_company">
-                    <div class="col-xs-12 col-md-6 o_setting_box">
-                        <div class="o_setting_left_pane">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Page margin top" for="etichette_small_margin_top"/><br/>
+                                <field name="etichette_small_margin_top" />
+                            </div>
                         </div>
-                        <div class="o_setting_right_pane">
-                            <label string="Page width" for="etichette_small_page_width"/><br/>
-                            <field name="etichette_small_page_width" />
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Page margin bottom" for="etichette_small_margin_bottom"/><br/>
+                                <field name="etichette_small_margin_bottom" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6 o_setting_box">
-                        <div class="o_setting_left_pane">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Page margin left" for="etichette_small_margin_left"/><br/>
+                                <field name="etichette_small_margin_left" />
+                            </div>
                         </div>
-                        <div class="o_setting_right_pane">
-                            <label string="Page height" for="etichette_small_page_height"/><br/>
-                            <field name="etichette_small_page_height" />
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Page margin right" for="etichette_small_margin_right"/><br/>
+                                <field name="etichette_small_margin_right" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-xs-12 col-md-6 o_setting_box">
-                        <div class="o_setting_left_pane">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Page header spacing" for="etichette_small_header_spacing"/><br/>
+                                <field name="etichette_small_header_spacing" />
+                            </div>
                         </div>
-                        <div class="o_setting_right_pane">
-                            <label string="Page margin top" for="etichette_small_margin_top"/><br/>
-                            <field name="etichette_small_margin_top" />
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6 o_setting_box">
-                        <div class="o_setting_left_pane">
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label string="Page margin bottom" for="etichette_small_margin_bottom"/><br/>
-                            <field name="etichette_small_margin_bottom" />
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6 o_setting_box">
-                        <div class="o_setting_left_pane">
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label string="Page margin left" for="etichette_small_margin_left"/><br/>
-                            <field name="etichette_small_margin_left" />
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="DPI" for="etichette_small_dpi"/><br/>
+                                <field name="etichette_small_dpi" />
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-md-6 o_setting_box">
-                        <div class="o_setting_left_pane">
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label string="Page margin right" for="etichette_small_margin_right"/><br/>
-                            <field name="etichette_small_margin_right" />
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-md-6 o_setting_box">
-                        <div class="o_setting_left_pane">
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label string="Page header spacing" for="etichette_small_header_spacing"/><br/>
-                            <field name="etichette_small_header_spacing" />
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6 o_setting_box">
-                        <div class="o_setting_left_pane">
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label string="DPI" for="etichette_small_dpi"/><br/>
-                            <field name="etichette_small_dpi" />
-                        </div>
-                    </div>
-                </div>
-            </xpath>
-        </field>
-    </record>
-
+                </xpath>
+            </field>
+        </record>
+    </data>
 </odoo>
