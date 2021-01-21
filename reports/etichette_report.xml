@@ -43,7 +43,7 @@
         paperformat="paperformat_etichette_report"
         name="KarakorumCampiCustom.etichette_report" 
         file="KarakorumCampiCustom.etichette_report_template"
-        print_report_name="'Etichette - %s - %s' % (object.partner_id.name or '', object.name)"
+        print_report_name="'Etichette prodotti - %s - %s' % (object.partner_id.name or '', object.name)"
     />
 
     <report
@@ -54,7 +54,7 @@
         paperformat="paperformat_etichette_ordine_report"
         name="KarakorumCampiCustom.etichette_report_ordine" 
         file="KarakorumCampiCustom.etichette_report_ordine_template"
-        print_report_name="'Etichette - %s - %s' % (object.partner_id.name or '', object.name)"
+        print_report_name="'Etichetta ordine - %s - %s' % (object.partner_id.name or '', object.name)"
     />
 
 

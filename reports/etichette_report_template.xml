@@ -61,46 +61,46 @@
                 <!-- CURRENCY E BASE URL PER IL PATH DEL BARCODE -->
                 <t t-set="baseUrl" t-value="request.httprequest.host_url"/>
                 <t t-set="currency_id" t-value="doc.group_id.sale_id.currency_id"/>
-
-                <t t-set="o" t-value="doc.group_id.sale_id" />
-                <t t-set="c" t-value="o.partner_id" />
-
+                <t t-set="order" t-value="doc.group_id.sale_id" />
+                <t t-set="o" t-value="order.with_context(lang=order.partner_id.lang)" />
+                <t t-set="partner" t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False"/>
+                
                     <h1>
-                        <span t-field="o.name"/>
                         <span t-field="o.name"/>
                     </h1>
 
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td colspan="3">
-                                    <b><span t-field="c.name"/></b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <span t-field="c.street"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td >
-                                    <span t-field="c.city"/>
-                                </td>
-                                <td >
-                                    <span t-field="c.state_id.name"/>
-                                </td>
-                                <td >
-                                    <span t-field="c.zip"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <span t-field="c.country_id.name"/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                
+                    <div style="font-size: large; width:90%">
+                        <table style="width:100%" class="table table-lg">
+                            <tbody>
+                                <tr>
+                                    <td >
+                                        <b><span t-field="partner.name"/></b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <span t-field="partner.street"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <span t-esc="'%s %s - %s' % (partner.city, partner.state_id.name, partner.zip)"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <span t-field="partner.country_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <span t-field="partner.phone"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <p style="page-break-after:always;"></p>
             </t>
         </template>
 
