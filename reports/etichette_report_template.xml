@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-    <!-- ****** ETICHETTA PICCOLA ****** -->
+    <!-- ****** ETICHETTA PICCOLA PRODOTTI ****** -->
         <template id="etichette_report_template">
             <t t-call="web.html_container" >
                 <!-- CURRENCY E BASE URL PER IL PATH DEL BARCODE -->
@@ -28,13 +28,18 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td colspan="2">
+                                        <b><span t-esc="doc.origin" /></b>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
                                     <td>
                                         <b><span t-esc="doc.origin" /></b>
                                     </td>
                                     <td style="text-align: right; vertical-align: bottom;" >
                                         <b><span t-esc="move.product_id.standard_price"  t-options="{'widget': 'monetary', 'display_currency': currency_id}"/></b>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table> 
                         <p style="page-break-after:always;"></p>
@@ -55,7 +60,7 @@
 
 
 
-    <!-- ****** ETICHETTA GRANDE ****** -->
+    <!-- ****** ETICHETTA GRANDE ORDINE ****** -->
         <template id="etichette_report_ordine_template">
             <!-- <t t-call="web.html_container" > -->
             <t t-call="web.basic_layout">
@@ -69,19 +74,23 @@
                 <t t-set="colliIndex" t-value="0" />
                 <t t-foreach="range(colliNum)" t-as="cn">
                  <t t-set="colliIndex" t-value="colliIndex + 1" />
-                    <h1>
-                        <span t-field="o.name"/>
-                    </h1>
-                    <h3>
-                        <span t-esc="'Collo %s di %s' % (colliIndex, colliNum)"/>
-                    </h3>
-
+                    
                     <table style="width:100%">
                         <tbody>
                             <tr>
                                 <td style="width:70%">
-                                    <table style="width:100%">
+                                    <table t-if="partner" style="width:100%">
                                          <tbody>
+                                            <tr>
+                                                <td>
+                                                    <h1>
+                                                        <span t-field="o.name"/>
+                                                    </h1>
+                                                    <h3>
+                                                        <span t-esc="'Collo %s di %s' % (colliIndex, colliNum)"/>
+                                                    </h3>
+                                                </td>
+                                            </tr>
                                              <tr>
                                                 <td>
                                                     <b><span t-field="partner.name"/></b>
@@ -128,5 +137,7 @@
                 </t>
             </t>
         </template>
+
+
     </data>
 </odoo>

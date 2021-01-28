@@ -4,7 +4,7 @@
     <!-- FORMATI PAGINE ETICHETTE -->
 
      <record model="report.paperformat" id="paperformat_etichette_report">
-        <field name="name">paperformat.etichette.report</field>
+        <field name="name">paperformat.etichette.report.prodotti</field>
         <field name="default" eval="True"/>
         <field name="format">custom</field>
         <field name="page_width">28</field>
@@ -19,11 +19,11 @@
     </record>
 
     <record model="report.paperformat" id="paperformat_etichette_ordine_report">
-        <field name="name">paperformat.etichette.report</field>
+        <field name="name">paperformat.etichette.report.ordini</field>
         <field name="default" eval="True"/>
         <field name="format">custom</field>
-        <field name="page_width">80</field>
-        <field name="page_height">150</field>
+        <field name="page_width">60</field>
+        <field name="page_height">120</field>
         <field name="margin_top">4</field>
         <field name="margin_right">4</field>
         <field name="margin_bottom">4</field>
@@ -58,4 +58,15 @@
     />
 
 
+
+    <!-- VOCE NEL MENU SETTINGS DEL FORMATO CARTA -->
+    <record id="action_formato_doc" model="ir.actions.act_window">
+        <field name="name">Formato doc</field>
+        <field name="res_model">report.paperformat</field>
+        <field name="view_type">tree</field>
+        <field name="view_mode">tree,list,form</field>
+        <field name="view_id" ref="base.paperformat_view_tree"/>
+    </record>
+
+    <menuitem id="formato_doc" name="Formato doc" parent="base.menu_administration" action="action_formato_doc"/>
 </odoo>
