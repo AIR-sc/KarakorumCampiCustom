@@ -59,7 +59,8 @@
 
 
 
-    <!-- VOCE NEL MENU SETTINGS DEL FORMATO CARTA -->
+    <!-- VOCE NEL MENU SETTINGS DEL FORMATO CARTA
+    ** NON FUNZIONA SU ODOO 14
     <record id="action_formato_doc" model="ir.actions.act_window">
         <field name="name">Formato doc</field>
         <field name="res_model">report.paperformat</field>
@@ -69,4 +70,5 @@
     </record>
 
     <menuitem id="formato_doc" name="Formato doc" parent="base.menu_administration" action="action_formato_doc"/>
+     -->
 </odoo>
