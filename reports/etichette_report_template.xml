@@ -2,6 +2,25 @@
 <odoo>
     <data>
 
+        <template id="account_invoice_report_add_field" inherit_id="stock.report_delivery_document">
+            <xpath expr="//th[@name='td_sched_date_h']" position="after">
+                <th t-if="o.numero_colli">
+                    <strong>Num colli</strong>
+                </th>
+                <td t-if="o.contrassegno and o.contrassegno > 0">
+                    <strong>Contrassegno</strong>
+                </td>
+            </xpath>
+            <xpath expr="//td[@name='td_sched_date']" position="after">
+                <td t-if="o.numero_colli">
+                    <span t-field="o.numero_colli"/>
+                </td>
+                <td t-if="o.contrassegno and o.contrassegno > 0">
+                    <span t-field="o.contrassegno"/>
+                </td>
+            </xpath>
+        </template>
+
     <!-- ****** ETICHETTA PICCOLA PRODOTTI ****** -->
         <template id="etichette_report_template">
             <t t-call="web.html_container" >
@@ -70,7 +89,7 @@
                 <t t-set="order" t-value="doc.group_id.sale_id" />
                 <t t-set="o" t-value="order.with_context(lang=order.partner_id.lang)" />
                 <t t-set="partner" t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False"/>
-                <t t-set="colliNum" t-value="len(doc.package_ids) or 1" />
+                <t t-set="colliNum" t-value="doc.numero_colli or 1" />
                 <t t-set="colliIndex" t-value="0" />
                 <t t-foreach="range(colliNum)" t-as="cn">
                  <t t-set="colliIndex" t-value="colliIndex + 1" />
@@ -78,7 +97,7 @@
                     <table style="width:100%">
                         <tbody>
                             <tr>
-                                <td style="width:70%">
+                                <td style="width:75%">
                                     <table t-if="partner" style="width:100%">
                                          <tbody>
                                             <tr>
@@ -96,17 +115,17 @@
                                                     <b><span t-field="partner.name"/></b>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr t-if="partner.street">
                                                 <td>
                                                     <span t-field="partner.street"/>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr >
                                                 <td>
-                                                    <span t-esc="'%s %s - %s' % (partner.city, partner.state_id.name, partner.zip)"/>
+                                                    <span t-esc="'%s %s - %s' % (partner.city or '', partner.state_id.name or '', partner.zip or '')"/>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr t-if="partner.country_id">
                                                 <td>
                                                     <span t-field="partner.country_id.name"/>
                                                 </td>
@@ -119,7 +138,7 @@
                                         </tbody>
                                     </table>
                                 </td>
-                                <td style="width:30%">
+                                <td style="width:25%">
                                     <b><span t-field="doc.note"/></b>
                                 </td>
                             </tr>
