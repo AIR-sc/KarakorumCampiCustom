@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
+        
+        <!-- ****** DISTINTA DI CONSEGNA, IN PROD V14 NON FUNZIONA PERCHE' E' FATTO CON IN DIV E NON CON LE TD ******
         <template id="account_invoice_report_add_field" inherit_id="stock.report_delivery_document">
             <xpath expr="//th[@name='td_sched_date_h']" position="after">
                 <th t-if="o.numero_colli">
@@ -21,7 +22,20 @@
             </xpath>
         </template>
 
-    <!-- ****** ETICHETTA PICCOLA PRODOTTI ****** -->
+        <template id="account_invoice_report_add_field" inherit_id="stock.report_delivery_document">
+            <xpath expr="//div[@name='div_sched_date']" position="after">
+                <div t-if="o.numero_colli" class="col-auto" name="div_numero_colli">
+                    <strong>Num colli</strong>
+                    <p t-field="o.numero_colli"/>
+                </div>
+                <div t-if="o.contrassegno and o.contrassegno > 0" class="col-auto" name="div_contrassegno">
+                    <strong>Contrassegno</strong>
+                    <p t-field="o.contrassegno"/>
+                </div>
+            </xpath>
+        </template>-->
+    
+        <!-- ****** ETICHETTA PICCOLA PRODOTTI ****** -->
         <template id="etichette_report_template">
             <t t-call="web.html_container" >
                 <!-- CURRENCY E BASE URL PER IL PATH DEL BARCODE -->
